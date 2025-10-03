@@ -1,2 +1,0 @@
-# glemory.web
-Meu site
