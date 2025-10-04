@@ -1,0 +1,288 @@
+import { useState, useEffect } from 'react'
+import { Button } from '@/components/ui/button.jsx'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
+import { Badge } from '@/components/ui/badge.jsx'
+import { 
+  Wrench, 
+  Stethoscope, 
+  Cpu, 
+  Shield, 
+  Users, 
+  Award,
+  Phone,
+  Mail,
+  MapPin,
+  ChevronRight,
+  Zap,
+  Settings,
+  Heart,
+  CheckCircle
+} from 'lucide-react'
+import logoImage from './assets/minhafoto1.jpg'
+import backgroundImage from './assets/background_blurred.png'
+import './App.css'
+
+function App() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
+  const services = [
+    {
+      icon: <Stethoscope className="w-8 h-8" />,
+      title: "Equipamentos de Diagnóstico",
+      description: "Manutenção e calibração de equipamentos de diagnóstico médico, incluindo monitores, eletrocardiógrafos e oxímetros.",
+      features: ["Calibração precisa", "Testes de segurança", "Certificação técnica"]
+    },
+    {
+      icon: <Heart className="w-8 h-8" />,
+      title: "Instrumentos Cirúrgicos",
+      description: "Reparo especializado em instrumentos cirúrgicos eletrônicos e equipamentos de suporte à vida.",
+      features: ["Reparo especializado", "Peças originais", "Garantia estendida"]
+    },
+    {
+      icon: <Cpu className="w-8 h-8" />,
+      title: "Sistemas Eletrônicos",
+      description: "Diagnóstico e reparo de sistemas eletrônicos complexos, placas de circuito e componentes digitais.",
+      features: ["Diagnóstico avançado", "Soldagem SMD", "Programação de firmware"]
+    },
+    {
+      icon: <Shield className="w-8 h-8" />,
+      title: "Certificação e Compliance",
+      description: "Certificação técnica e adequação às normas de segurança médica nacionais e internacionais.",
+      features: ["Normas ANVISA", "IEC 60601", "Documentação completa"]
+    }
+  ]
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 rounded-lg overflow-hidden glow-effect">
+                <img 
+                  src={logoImage} 
+                  alt="Nexus Reparo Logo" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-gradient">NEXUS REPARO</h1>
+                <p className="text-sm text-muted-foreground">Assistência Técnica Médica</p>
+              </div>
+            </div>
+            <nav className="hidden md:flex space-x-6">
+              <a href="#services" className="text-foreground hover:text-primary transition-colors">Serviços</a>
+              <a href="#team" className="text-foreground hover:text-primary transition-colors">Nosso Trabalho</a>
+              <a href="#contact" className="text-foreground hover:text-primary transition-colors">Contato</a>
+            </nav>
+            <Button className="btn-cyber">
+              <Phone className="w-4 h-4 mr-2" />
+              Contato
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section 
+        className="pt-32 pb-20 px-4 relative overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.85)), url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="container mx-auto text-center relative z-10">
+          <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-in' : 'opacity-0'}`}>
+            <Badge className="mb-6 bg-accent/20 text-accent border-accent/30">
+              <Zap className="w-3 h-3 mr-1" />
+              Tecnologia Médica Avançada
+            </Badge>
+            <h1 className="text-5xl md:text-6xl font-semibold mb-6 text-gradient">
+              Soluções tecnológicas personalizadas para inovação e crescimento
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              Na Nexus Reparo, capacitamos você com desenvolvimento de assistência técnica de última geração e personalizada, feito sob medida para galvanizar e impulsionar seu negócio.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="btn-cyber text-lg px-8 py-6">
+                <Settings className="w-5 h-5 mr-2" />
+                Nosso trabalho
+                <ChevronRight className="w-5 h-5 ml-2" />
+              </Button>
+              <Button size="lg" variant="outline" className="hover-lift border-primary/30 text-lg px-8 py-6">
+                <Users className="w-5 h-5 mr-2" />
+                Entre em contato
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-medium mb-4 text-gradient">Nossos Serviços</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Oferecemos soluções completas em assistência técnica para equipamentos médicos, 
+              com foco na qualidade, segurança e conformidade regulatória.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <Card key={index} className="cyber-border hover-lift group">
+                <CardHeader>
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:animate-pulse-glow">
+                      {service.icon}
+                    </div>
+                    <div>
+                      <CardTitle className="text-lg font-medium card-title">{service.title}</CardTitle>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base mb-4 card-description">
+                    {service.description}
+                  </CardDescription>
+                  <div className="space-y-2">
+                    {service.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-sm text-muted-foreground">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Work Section (formerly Team) */}
+      <section id="team" className="py-20 px-4 circuit-pattern">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-medium mb-4 text-gradient">Alguns dos nossos melhores trabalhos</h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Somos uma empresa de assistência técnica que trabalha com clientes de diversos setores para fornecer reparos personalizados, desenvolvimento de soluções e manutenção para equipamentos médicos e instrumentos.
+            </p>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Não importa se você está procurando serviços de reparo, experiência do usuário (UX) em interfaces de equipamentos, configuração e instalação de equipamentos ou criação de soluções, nós somos os profissionais certos.
+            </p>
+          </div>
+          
+          {/* Placeholder for work/project cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <Card className="metal-surface hover-lift">
+              <CardHeader>
+                <Wrench className="w-10 h-10 text-primary mb-4" />
+                <CardTitle className="text-lg font-medium card-title">Reparo de Ventiladores Pulmonares</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base card-description">Especialistas no diagnóstico e reparo de ventiladores pulmonares, garantindo a segurança e funcionalidade para hospitais e clínicas.</CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="metal-surface hover-lift">
+              <CardHeader>
+                <Cpu className="w-10 h-10 text-primary mb-4" />
+                <CardTitle className="text-lg font-medium card-title">Manutenção de Monitores Cardíacos</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base card-description">Serviços completos de manutenção preventiva e corretiva para monitores cardíacos, assegurando leituras precisas e confiáveis.</CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="metal-surface hover-lift">
+              <CardHeader>
+                <Stethoscope className="w-10 h-10 text-primary mb-4" />
+                <CardTitle className="text-lg font-medium card-title">Calibração de Equipamentos de Imagem</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base card-description">Calibração e ajuste de equipamentos de imagem médica, como ultrassons e raios-X, para otimizar a qualidade diagnóstica.</CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-medium mb-4 text-gradient">Entre em Contato</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Precisa de assistência técnica para seus equipamentos médicos? 
+              Entre em contato conosco para uma avaliação especializada.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <Card className="cyber-border hover-lift text-center">
+              <CardContent className="pt-6">
+                <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Telefone</h3>
+                <p className="text-muted-foreground">+55 (11) 9999-9999</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="cyber-border hover-lift text-center">
+              <CardContent className="pt-6">
+                <Mail className="w-8 h-8 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">E-mail</h3>
+                <p className="text-muted-foreground">contato@nexusreparo.com.br</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="cyber-border hover-lift text-center">
+              <CardContent className="pt-6">
+                <MapPin className="w-8 h-8 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Localização</h3>
+                <p className="text-muted-foreground">São Paulo, SP</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button size="lg" className="btn-cyber text-lg px-8 py-6">
+              <Award className="w-5 h-5 mr-2" />
+              Solicitar Orçamento
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border py-12 px-4">
+        <div className="container mx-auto text-center">
+          <div className="flex items-center justify-center space-x-4 mb-6">
+            <div className="w-8 h-8 rounded overflow-hidden">
+              <img 
+                src={logoImage} 
+                alt="Nexus Reparo" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <span className="text-xl font-bold text-gradient">NEXUS REPARO</span>
+          </div>
+          <p className="text-muted-foreground mb-4">
+            Assistência técnica especializada em equipamentos médicos e instrumentos de precisão.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            © 2025 Nexus Reparo. Todos os direitos reservados.
+          </p>
+        </div>
+      </footer>
+    </div>
+  )
+}
+
+export default App
