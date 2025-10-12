@@ -44,7 +44,7 @@
 /* Tema Minimalista Preto */
 :root {
   --radius: 0.5rem;
-  
+
   /* Cores Base - Preto e Branco Minimalista */
   --background: #000000; /* Preto puro */
   --foreground: #ffffff; /* Branco puro para texto */
@@ -52,7 +52,7 @@
   --card-foreground: #ffffff;
   --popover: #111111;
   --popover-foreground: #ffffff;
-  
+
   /* Acentos Minimalistas */
   --primary: #ffffff; /* Branco para elementos primários */
   --primary-foreground: #000000;
@@ -62,7 +62,7 @@
   --muted-foreground: #cccccc; /* Cinza claro para texto muted */
   --accent: #ffffff; /* Branco para acentos */
   --accent-foreground: #000000;
-  
+
   /* Estados */
   --destructive: #ff4444; /* Vermelho para erros */
   --border: rgba(255, 255, 255, 0.1); /* Borda sutil branca */
@@ -70,11 +70,14 @@
   --ring: #ffffff;
 }
 
+/* Header fixo: variável padrão (ajuste se necessário) */
+:root { --header-height: 64px; }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  
+
   body {
     @apply bg-background text-foreground;
     background-color: #000000; /* Garantir fundo preto puro */
@@ -85,7 +88,7 @@
     line-height: 1.6;
     overflow-x: hidden;
   }
-  
+
   html {
     scroll-behavior: smooth;
     background-color: #000000; /* Garantir fundo preto puro */
@@ -248,11 +251,11 @@ button {
   .section-minimal {
     padding: 3rem 1rem;
   }
-  
+
   h1 {
     font-size: 2.5rem;
   }
-  
+
   h2 {
     font-size: 2rem;
   }
@@ -272,4 +275,26 @@ button {
 body, html, #root {
   background-color: #000000 !important;
   color: #ffffff !important;
+}
+
+/* Classe para garantir altura consistente do header fixo */
+.header-fixed {
+  height: var(--header-height);
+  min-height: var(--header-height);
+}
+
+/* Espaço superior no main equivalente ao header */
+.main-with-header {
+  padding-top: var(--header-height);
+}
+
+/* Evita que âncoras fiquem escondidas atrás do header ao navegar */
+html {
+  scroll-padding-top: calc(var(--header-height) + 8px);
+}
+
+/* Ajuste em telas pequenas (aumenta espaço se necessário) */
+@media (max-width: 640px) {
+  :root { --header-height: 72px; }
+  h1 { font-size: 2rem; }
 }
