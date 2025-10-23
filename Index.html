@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistência Deck - Assistência Técnica Especializada</title>
+    <style>
+        /* Reset básico e estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #6a0dad; /* Roxo principal */
+        }
+
+        .contato-topo {
+            float: right;
+            text-align: right;
+        }
+
+        .btn-whatsapp {
+            background: #6a0dad;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #5a0ca0;
+        }
+
+        /* Seções principais */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .servicos, .sobre {
+            padding: 60px 0;
+        }
+
+        .servicos-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .servico-categoria {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .servico-categoria h3 {
+            color: #6a0dad;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #6a0dad;
+            padding-bottom: 10px;
+        }
+
+        .servico-categoria ul {
+            list-style-type: none;
+        }
+
+        .servico-categoria li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .servico-categoria li:before {
+            content: "•";
+            color: #6a0dad;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* Rodapé */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <!-- LOGO - ASSISTÊNCIA DECK -->
+            <div class="logo">Assistência Deck</div>
+            <div class="contato-topo">
+                <!-- BOTÃO WHATSAPP ATUALIZADO COM SEU LINK -->
+                <a href="https://wa.me/5561920053145" class="btn-whatsapp" target="_blank">Fale Conosco</a>
+                <p>Tel: (61) 92005-3145</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Hero/Banner -->
+    <section class="hero">
+        <div class="container">
+            <h1>Assistência Técnica Especializada</h1>
+            <p>Manutenção de instrumentos cirúrgicos odontológicos e ortopédicos</p>
+        </div>
+    </section>
+
+    <!-- Seção Serviços -->
+    <section class="servicos">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="servicos-lista">
+                <!-- SEÇÃO ODONTOLOGIA -->
+                <div class="servico-categoria">
+                    <h3>Instrumentos Odontológicos</h3>
+                    <ul>
+                        <li>Canetas de alta e baixa rotação</li>
+                        <li>Micromotores</li>
+                        <li>Aparelhos de ultrassom</li>
+                        <li>Luzes fotopolimerizadoras</li>
+                        <li>Motosserras</li>
+                        <li>Aparelhos de raio X</li>
+                        <li>Compressores odontológicos</li>
+                        <li>Refrigeradores</li>
+                        <li>Sugadores</li>
+                        <li>Equipamentos de esterilização</li>
+                    </ul>
+                </div>
+
+                <!-- SEÇÃO ORTOPEDIA - LISTA ATUALIZADA -->
+                <div class="servico-categoria">
+                    <h3>Instrumentos Ortopédicos</h3>
+                    <ul>
+                        <li>Instrumentais para artroscopia</li>
+                        <li>Equipamentos para cirurgia de coluna</li>
+                        <li>Motosserras ortopédicas</li>
+                        <li>Furadeiras ortopédicas</li>
+                        <li>Instrumentais para osteossíntese</li>
+                        <li>Craniotomo e similares</li>
+                        <li>Equipamentos de fixação interna</li>
+                        <li>Instrumentais para próteses</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section class="sobre">
+        <div class="container">
+            <h2>Nosso Trabalho</h2>
+            <!-- Conteúdo sobre será adicionado aqui -->
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Assistência Deck - Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+  </html>
