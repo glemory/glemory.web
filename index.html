@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assistência Técnica Cirurgic Especializada</title>
+    
+    <!-- BIBLIOTECA DE ÍCONES (Font Awesome) - Como se fosse um kit de componentes prontos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         /* Reset básico e estilos gerais */
         * {
@@ -17,10 +21,7 @@
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
-        }
-
-        /* Bloqueia a seleção de texto em todo o site para dificultar cópias rápidas */
-        body {
+            /* Bloqueia a seleção de texto em todo o site */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -46,7 +47,7 @@
             align-items: center;
         }
 
-        /* PROTEÇÃO DA LOGO - CAMADA 1: CSS */
+        /* PROTEÇÃO DA LOGO */
         .logo {
             display: flex;
             align-items: center;
@@ -67,13 +68,9 @@
         .logo-img {
             width: 100%;
             height: auto;
-            /* Impede o "arrastar e soltar" da imagem */
             pointer-events: none; 
         }
 
-        /* CAMADA 2: Escudo Invisível (Overlay) 
-           Este bloco fica na frente da imagem. Se alguém tentar clicar com o botão direito, 
-           estará clicando neste bloco vazio, não na imagem. */
         .logo-shield {
             position: absolute;
             top: 0;
@@ -95,22 +92,31 @@
             color: #666;
         }
 
+        /* BOTÃO WHATSAPP - Agora em VERDE e com ÍCONE */
         .btn-whatsapp {
-            background: #6a0dad;
+            background: #25D366; /* Verde oficial do WhatsApp */
             color: white;
-            padding: 8px 18px;
+            padding: 10px 22px;
             border-radius: 25px;
             text-decoration: none;
-            display: inline-block;
-            transition: background 0.3s;
-            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Espaço entre o ícone e o texto */
+            transition: all 0.3s ease;
+            font-size: 1rem;
             font-weight: 600;
-            /* Permite clicar no botão mesmo com o bloqueio global */
             pointer-events: auto; 
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
         }
 
         .btn-whatsapp:hover {
-            background: #5a0ca0;
+            background: #128C7E; /* Verde mais escuro ao passar o mouse */
+            transform: scale(1.05); /* Dá um leve zoom no botão */
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp i {
+            font-size: 1.2rem; /* Tamanho do ícone */
         }
 
         /* Seções principais */
@@ -231,7 +237,7 @@
             object-fit: contain;
             filter: grayscale(20%);
             transition: filter 0.3s ease;
-            pointer-events: none; /* Proteção básica para as logos das marcas também */
+            pointer-events: none; 
         }
 
         .marca-card:hover .marca-logo-box img {
@@ -270,21 +276,24 @@
         }
     </style>
 </head>
-<body oncontextmenu="return false;"> <!-- CAMADA 3: Bloqueia o botão direito em todo o site -->
+<body oncontextmenu="return false;"> <!-- Bloqueia o botão direito -->
 
     <!-- Cabeçalho -->
     <header>
         <div class="container">
             <div class="logo">
-                <!-- Wrapper para a proteção da logo -->
                 <div class="logo-wrapper">
-                    <div class="logo-shield"></div> <!-- O escudo invisível -->
+                    <div class="logo-shield"></div>
                     <img src="imagens/logo1.png" alt="Logo" class="logo-img">
                 </div>
                 <span class="logo-text">Cirúrgic</span>
             </div>
             <div class="contato-topo">
-                <a href="https://wa.me/5561920053145" class="btn-whatsapp" target="_blank">Fale Conosco</a>
+                <!-- BOTÃO COM ÍCONE DO WHATSAPP -->
+                <a href="https://wa.me/5561920053145" class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> <!-- Ícone do WhatsApp -->
+                    Fale Conosco
+                </a>
                 <p>Tel: (61) 92005-3145</p>
             </div>
         </div>
@@ -392,7 +401,7 @@
         </div>
     </footer>
 
-    <!-- CAMADA 4: JavaScript para bloquear atalhos de teclado (F12, Ctrl+U, etc) -->
+    <!-- Bloqueio de atalhos de teclado -->
     <script>
         document.onkeydown = function(e) {
             if (e.keyCode == 123) { return false; } // F12
